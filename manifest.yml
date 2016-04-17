@@ -1,13 +1,12 @@
 ---
 declared-services:
-  cloudtrader-SQLDB:
-    label: sqldb
-    plan: sqldb_free
+  TradeDataSource:
+    label: mysql
+    plan: 100
 applications:
-- name: Bluemix-Days-CloudTrader
+- name: CloudTraderApp
   memory: 512M
   path: cloudtrader.war
-  host: bd-cloudtrader
-  buildpack: liberty-for-java 
+  host: cloudtraderapp-010402016
   services:
-  - cloudtrader-SQLDB
+  - TradeDataSource
