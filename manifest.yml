@@ -7,6 +7,7 @@ applications:
 - name: CloudTraderApp
   memory: 512M
   path: cloudtrader.war
+  buildpack: liberty-for-java
   host: cloudtraderapp-010402016
   services:
   - TradeDataSource
