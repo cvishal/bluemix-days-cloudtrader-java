@@ -1,6 +1,6 @@
 ---
 declared-services:
-  TradeDataSource:
+  cloudtrader-SQLDB:
     label: mysql
     plan: 100
 applications:
@@ -10,4 +10,4 @@ applications:
   buildpack: liberty-for-java
   host: cloudtraderapp-010402016
   services:
-  - TradeDataSource
+  - cloudtrader-SQLDB
