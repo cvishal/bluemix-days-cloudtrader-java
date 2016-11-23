@@ -1,0 +1,17 @@
+<server>
+    <featureManager>
+        <feature>jsp-2.2</feature>
+        <feature>jdbc-4.0</feature>        
+        <feature>jpa-2.0</feature>
+    </featureManager> 
+<httpEndpoint id="defaultHttpEndpoint" host="*" 	httpPort="9080" httpsPort="9443" />    
+<!-- JDBC Connection Details -->
+<jdbcDriver id="MYSQLJCC" libraryRef="MYSQLJCCLib"/>
+<library filesetRef="MYSQLJCCFileSet" id="MYSQLJCCLib"/>
+<fileset dir="${shared.resource.dir}/" id="MYSQLJCCFileSet" includes="mysql-connector-java-5.1.25.jar"/>
+<!-- DataSource Details -->
+<connectionManager id="conMgr1" agedTimeout="-1" connectionTimeout="0" maxIdleTime="-1" maxPoolSize="70" minPoolSize="70" purgePolicy="FailingConnectionOnly" reapTime="-1"/> 
+<dataSource connectionManagerRef="conMgr1" id="TradeDataSource" isolationLevel="TRANSACTION_READ_COMMITTED" jdbcDriverRef="MYSQLJCC" jndiName="jdbc/TradeDataSource" statementCacheSize="60">
+	<properties databaseName="TRADEDB" driverType="4" password="password" portNumber="3306" serverName="MySQLDBHost" user="root"/> 
+</dataSource>
+</server>
